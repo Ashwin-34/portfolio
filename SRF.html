@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+<style>
+  :root {
+    --primary: #00d9ff;
+    --primary-dark: #00b8d4;
+    --neon: #00e5ff;
+    --error: #ff5470;
+    --bg: #000000;
+    --card: #0a0a0a;
+    --tile: #111417;
+    --text: #e6f6ff;
+    --muted: #8fa3ad;
+    --border: #22303a;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Quicksand', 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    padding: 40px 16px;
+    color: var(--text);
+  }
+
+  .card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.08);
+    padding: 32px 36px 40px;
+    border: 1px solid var(--border);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+    text-align: center;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  fieldset {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px 20px;
+    margin-bottom: 24px;
+    background: var(--tile);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transform: scale(1);
+  }
+
+  fieldset:hover {
+    transform: scale(1.03);
+    border-color: var(--neon);
+    box-shadow:
+      0 0 15px rgba(0, 229, 255, 0.55),
+      0 0 35px rgba(0, 229, 255, 0.35),
+      0 0 70px rgba(0, 229, 255, 0.2);
+    z-index: 2;
+    position: relative;
+  }
+
+  legend {
+    font-weight: 600;
+    padding: 0 8px;
+    color: var(--primary);
+  }
+
+  .form-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .form-group {
+    flex: 1 1 200px;
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #cfe9f0;
+  }
+
+  .required::after {
+    content: " *";
+    color: var(--error);
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  input[type="password"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #050708;
+    color: var(--text);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #050708;
+    color: var(--muted);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  input[type="file"]:hover {
+    border-color: var(--neon);
+  }
+
+  input[type="file"]::file-selector-button {
+    background: var(--primary);
+    color: #001014;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: background 0.15s;
+  }
+
+  input[type="file"]::file-selector-button:hover {
+    background: var(--neon);
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #556670;
+  }
+
+  select option {
+    background: #0a0a0a;
+    color: var(--text);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--neon);
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+  }
+
+  input:invalid:not(:placeholder-shown):not(:focus),
+  select:invalid:not(:focus) {
+    border-color: var(--error);
+  }
+
+  small.hint {
+    display: block;
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 4px;
+  }
+
+  .checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #cfe9f0;
+  }
+
+  .checkbox-row input { margin-top: 3px; }
+
+  .radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #cfe9f0;
+  }
+
+  .radio-option input { width: auto; }
+
+  button[type="submit"] {
+    background: var(--primary);
+    color: #001014;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  button[type="submit"]:hover {
+    background: var(--neon);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.7), 0 0 40px rgba(0, 229, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* Simple press animation on click */
+  button[type="submit"].pressed {
+    animation: submitPulse 0.4s ease;
+  }
+
+  @keyframes submitPulse {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(0.93); box-shadow: 0 0 8px rgba(0, 229, 255, 0.9); }
+    70%  { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  #result {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: #04231f;
+    border: 1px solid #10b981;
+    color: #6ee7b7;
+    display: none;
+    font-size: 0.9rem;
+    animation: fadeSlideIn 0.35s ease;
+  }
+
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Student Registration Form</h1>
+  <p class="subtitle">Fields marked with <span style="color:var(--error)">*</span> are required.</p>
+
+  <form id="regForm" novalidate>
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName" class="required">First Name</label>
+          <input type="text" id="firstName" name="firstName" required minlength="2" maxlength="30" pattern="[A-Za-z\s'-]+" placeholder="e.g. Ananya">
+          <small class="hint">Letters only, 2–30 characters.</small>
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="required">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required minlength="2" maxlength="30" pattern="[A-Za-z\s'-]+" placeholder="e.g. Rao">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dob" class="required">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required max="2015-01-01">
+          <small class="hint">Must be born on/before 2015-01-01.</small>
+        </div>
+        <div class="form-group">
+          <label class="required">Gender</label>
+          <div class="radio-group">
+            <label class="radio-option"><input type="radio" name="gender" value="female" required> Female</label>
+            <label class="radio-option"><input type="radio" name="gender" value="male" required> Male</label>
+            <label class="radio-option"><input type="radio" name="gender" value="other" required> Other</label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact Information</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email" class="required">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone" class="required">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit number">
+          <small class="hint">Exactly 10 digits, no spaces or dashes.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Residential Address</label>
+        <textarea id="address" name="address" rows="3" maxlength="200" placeholder="House no, street, city, state"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Academic Details</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="course" class="required">Course Applying For</label>
+          <select id="course" name="course" required>
+            <option value="" disabled selected>Select a course</option>
+            <option value="ba">BA</option>
+            <option value="bca">BCA</option>
+            <option value="bba">BBA</option>
+            <option value="bcom">BCOM</option>
+            <option value="mcom">MCOM</option>
+            <option value="mba">MBA</option>
+            <option value="mca">MCA</option>
+            <option value="ma">MA</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="institution">Previous Studies Institution</label>
+          <input type="text" id="institution" name="institution" maxlength="150" placeholder="Name of your previous school/college">
+          <small class="hint">Max 150 characters.</small>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="percentage" class="required">Previous Percentage (%)</label>
+          <input type="number" id="percentage" name="percentage" required min="0" max="100" step="0.01" placeholder="0–100">
+        </div>
+        <div class="form-group">
+          <label for="year" class="required">Year of Admission</label>
+          <input type="number" id="year" name="year" required min="2024" max="2030" placeholder="e.g. 2026">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="marksheet" class="required">Upload Marksheet of 2nd PU</label>
+        <input type="file" id="marksheet" name="marksheet" accept="image/*,.pdf" required>
+        <small class="hint">Accepted formats: image (JPG/PNG) or PDF.</small>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Account Setup</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="password" class="required">Password</label>
+          <input type="password" id="password" name="password" required minlength="8"
+                 pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$" placeholder="Min 12 characters">
+          <small class="hint">At least 12 characters, with letters and numbers.</small>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword" class="required">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required minlength="12" placeholder="Re-enter password">
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">I confirm that the information provided is accurate and I agree to the terms and conditions. <span style="color:var(--error)">*</span></label>
+    </div>
+
+    <div class="actions">
+      <button type="submit" id="submitBtn">Submit Registration</button>
+    </div>
+
+    <div id="result"></div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('regForm');
+  const result = document.getElementById('result');
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
+  const submitBtn = document.getElementById('submitBtn');
+
+  function checkPasswordsMatch() {
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setCustomValidity('Passwords do not match.');
+    } else {
+      confirmPassword.setCustomValidity('');
+    }
+  }
+
+  password.addEventListener('input', checkPasswordsMatch);
+  confirmPassword.addEventListener('input', checkPasswordsMatch);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    checkPasswordsMatch();
+
+    // Simple button press animation on every submit attempt
+    submitBtn.classList.remove('pressed');
+    void submitBtn.offsetWidth; // restart animation if clicked again quickly
+    submitBtn.classList.add('pressed');
+
+    if (form.checkValidity()) {
+      result.style.display = 'block';
+      result.textContent = '✅ Registration submitted successfully! You will be notified shortly about registration via gmail)';
+      result.style.background = '#04231f';
+      result.style.borderColor = '#10b981';
+      result.style.color = '#6ee7b7';
+    } else {
+      form.reportValidity();
+      result.style.display = 'block';
+      result.textContent = '⚠️ Please fix the highlighted errors before submitting.';
+      result.style.background = '#2a0e14';
+      result.style.borderColor = 'var(--error)';
+      result.style.color = 'var(--error)';
+    }
+  });
+</script>
+
+</body>
+</html>

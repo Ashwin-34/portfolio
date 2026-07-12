@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Link to your external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated network constellation background -->
+<canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation Ribbon -->
+    <header class="header-ribbon">
+        <nav class="nav-container">
+            <div class="logo">PORTFOLIO<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="section hero">
+            <div class="hero-tag">Welcome to my professional space</div>
+            <h1 class="hero-name">Ash</h1>
+            <div class="hero-designation">BCA Student </div>
+            <a href="#contact" class="btn">Let's Connect</a>
+
+            <!-- Modern Infinite Scrolling Marquee -->
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <div class="marquee-item"><span>//</span> Writing code that humans love to use and servers love to
+                        run. </div>
+                    <div class="marquee-item"><span>//</span> Translating complex ideas into clean, functional, and
+                        scalable code. </div>
+
+                    <div class="marquee-item"><span>//</span> Writing code that humans love to use and servers love to
+                        run.</div>
+                    <div class="marquee-item"><span>//</span> Translating complex ideas into clean, functional, and
+                        scalable code. </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- About Section -->
+<section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-container">
+        <div class="about-image-wrapper">
+            <div class="profile-tile-inner">
+                <img src="ashwin.jpg" alt="Ash - Profile Picture" class="profile-img">
+            </div>
+        </div>
+        <div class="about-card">
+            <p class="about-text">
+                I am a passionate Full-Stack Developer fresher who loves building clean, scalable, and user-centric web
+                applications. Proficient in both modern front-end frameworks and robust back-end systems, I bridge the
+                gap between seamless design and efficient databases. Adaptable and eager to learn, I am ready to
+                contribute fresh ideas and reliable code to a forward-thinking engineering team.
+            </p>
+        </div>
+    </div>
+</section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>HTML</h4>
+                </div>
+                <div class="skill-card">
+                    <h4>CSS</h4>
+                </div>
+                <div class="skill-card">
+                    <h4>JAVASCRIPT</h4>
+                </div>
+                <div class="skill-card">
+                    <h4>PYTHON</h4>
+                </div>
+                <div class="skill-card">
+                    <h4>SQL</h4>
+                </div>
+                <div class="skill-card">
+                    <h4>C++</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-item">
+                    <h3 class="achievement-title">Awards</h3>
+                    <div class="achievement-meta">St. Claret College Autonomous | 2026</div>
+                    <p class="about-text">II Prize in Coding and Debugging.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="projects-grid">
+                <div class="project-card live-project-card">
+                    <div>
+                        <h3 class="project-title">Student Registration Form</h3>
+                        <p class="project-desc">This is a sample student registration form used to shortlist candidates
+                            for admission.</p>
+                    </div>
+                    <a href="SRF.html" target="_blank" class="btn project-btn">View this Project →</a>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">Your New Project Title</h3>
+                        <p class="project-desc">Explain your architecture choice, libraries used, or what real-world
+                            problem it solves here.</p>
+                    </div>
+                    <a href="your-project-folder-name/index.html" target="_blank" class="btn project-btn">View Live
+                        Project →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-box">
+                <p>Have an interesting project proposal, or just want to collaborate? Reach out through any of the
+                    channels below and let's build something exceptional.</p>
+                <div class="contact-actions">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashwinvinu346@gmail.com&su=Project%20Inquiry"
+                        target="_blank" class="btn contact-btn">
+                        Email via Gmail
+                    </a>
+                    <a href="tel:+918618362035" class="btn contact-btn btn-secondary">
+                        Call: +91 8618362035
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Space -->
+    <footer class="footer">
+        <p>&copy; 2026 Ash. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to your external script -->
+    <script src="script.js" defer></script>
+
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+        const PARTICLE_COUNT = Math.floor((width * height) / 18000);
+        const LINK_DISTANCE = 140;
+        const SPEED = 0.15;
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * SPEED,
+                    vy: (Math.random() - 0.5) * SPEED
+                });
+            }
+        }
+        createParticles();
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(96, 165, 250, 0.7)';
+                ctx.fill();
+            }
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const a = particles[i], b = particles[j];
+                    const dx = a.x - b.x, dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < LINK_DISTANCE) {
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = `rgba(96, 165, 250, ${0.18 * (1 - dist / LINK_DISTANCE)})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+</body>
+
+</html> 
